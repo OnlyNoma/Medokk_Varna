@@ -161,11 +161,19 @@
     margin-top: 18px;
     background: rgba(235,245,252,0.40);
     border-radius: 20px;
+    width: 315px;
+    padding-left: 50px;
+    padding-right: 18px;
+}
+#Contacts
+{
+	margin-top: 18px;
+    background: rgba(235,245,252,0.40);
+    border-radius: 20px;
     width: 642px;
     padding-left: 50px;
     padding-right: 18px;
 }
-
 #masters > h2{
     font-size: 34px;
     color: #13408b;
