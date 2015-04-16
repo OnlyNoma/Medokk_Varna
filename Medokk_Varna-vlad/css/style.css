@@ -1,0 +1,385 @@
+#content{
+    background: url("../image/bg.png");
+    width: 100%;
+    height: 978px;
+    background-size: 100% 978px;
+    min-width: 978px;
+}
+
+.content{
+    width: 978px;
+    margin: 0 auto;
+}
+
+.content > .left, .right, .center{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.left{
+    width: 233px;
+    padding-left: 27px;
+    margin-top: 95px;
+}
+
+.right{
+    width: 315px;
+    margin-top: 75px;
+}
+
+.center{
+    width: 383px;
+    margin-top: 40px;
+}
+
+.center img{
+    /*margin-left: 35px;*/
+}
+#footer
+{
+	border-top: 1px dashed #9d978b;
+	padding-bottom:45px;
+	position:relative;
+}
+#footerLinks
+{
+	position:absolute;
+	top: 100px;
+	left: 400px;
+	line-height:0.6;
+}
+#footerLinks a
+{
+	text-decoration:none;
+	font-size:13px;
+	color:#939393;
+}
+#footerLinks p
+{
+	color:#939393;	
+	font-size:13px;
+}
+#leftFooterLink
+{
+	border-right:1px solid #939393;;
+	padding-right:5px;	
+}
+#rightFooterLink
+{
+	padding-left:5px;
+}
+#masters{
+    margin-top: 18px;
+    background: rgba(235,245,252,0.40);
+    border-radius: 20px;
+    width: 642px;
+    padding-left: 50px;
+    padding-right: 18px;
+}
+
+#masters > h2{
+    font-size: 34px;
+    color: #13408b;
+    padding-top: 14px;
+    padding-bottom: 10px;
+}
+
+#mapStyle
+{
+	width: 609px;
+    border-top: 1px dashed #9d978b;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+
+.image{
+    width: 64px;
+    height: 70px;
+    border: 1px solid #4d5b86;
+    margin-right: 20px;
+    float: left;
+}
+
+.name{
+    font-size: 18px;
+    font-weight: bold;
+    color: #13408b;
+}
+
+.text{
+    margin-top: 5px;
+    color: #4f4f4f;
+}
+
+.graphick{
+    background: url("../image/graphick.png") no-repeat;
+    width: 176px;
+    height: 109px;
+    text-align: center;
+    padding: 30px 5px 20px 5px;
+    font-size: 15px;
+    color: #fff;
+    margin-left: 13px;
+}
+
+.graphick > span{
+    display: block;
+}
+
+.graphick:hover{
+    cursor: pointer;
+}
+
+#sidebar{
+    width: 190px;
+    border: 4px solid #fff;
+    border-radius: 26px;
+    padding: 7px;
+    margin-bottom: 30px;
+}
+
+.sidebar{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 32px;
+    border: 1px solid #b7b2a9;
+    border-radius: 20px;
+    width: 153px;
+    background: rgba(255,255,255,0.25);
+}
+
+.sidebar > ul > li{
+    list-style: url("../image/krapka.png");
+    margin-bottom: 15px;
+}
+
+.sidebar > ul > li > a{
+    text-decoration: none;
+    font-size: 15px;
+    color: #2d2b28
+}
+
+.sidebar > ul > li > a:hover{
+    color: #075bb2;
+}
+
+.sidebar > ul > li:hover{
+    color: #fff;
+    list-style: url("../image/krapka_hover.png");
+}
+
+#news{
+    width: 190px;
+    border: 4px solid #fff;
+    border-radius: 26px;
+    padding: 7px;
+    margin-bottom: 15px;
+}
+
+.news{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    border: 1px solid #b7b2a9;
+    border-radius: 20px;
+    width: 170px;
+    background: rgba(255,255,255,0.25);
+}
+
+.news > ul > li{
+    margin-bottom: 20px;
+    color: #2d2b28;
+}
+
+.date{
+    color: #2d2b28;
+}
+
+.news > ul > li > a{
+    color: #2d2b28;
+}
+
+.news > ul > li > a:hover{
+    color: #075bb2;
+}
+
+#contacts{
+    width: 190px;
+    border: 4px solid #fff;
+    border-radius: 26px;
+    padding: 7px;
+    margin-bottom: 15px;
+}
+
+.contacts{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    border: 1px solid #b7b2a9;
+    border-radius: 20px;
+    width: 160px;
+    background: rgba(255,255,255,0.25);
+    color: #2d2b28;
+    font-size: 13px;
+}
+#textContacts
+{
+	line-height: 0.5;
+	display: inline-block;
+	vertical-align: top;	
+}
+#textAdress
+{
+	line-height: 0.5;
+	display: inline-block;
+	margin-left: 170px;
+}
+#BlueText
+{
+	color:#49649d;
+	font-weight:bold;
+	font-size:20px;
+}
+
+.contacts > ul > li{
+    list-style: url("../image/krapka.png");
+    margin-bottom: 8px;
+}
+
+.contacts > ul > span{
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.zapis{
+    background: url("../image/vsalon.png") no-repeat;
+    width: 161px;
+    height: 55px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding: 12px 20px 5px 20px;
+}
+
+.right > img{
+    margin-bottom: 35px;
+}
+
+.actions{
+    margin-top: 53px;
+    border-radius: 25px;
+    background: rgba(235,238,252,0.45);
+    padding-left: 20px;
+    padding-right: 38px;
+    padding-top: 16px;
+    padding-bottom: 20px;
+}
+
+.actions > .acc{
+    font-size: 34px;
+    color: #d41313;
+    display: block;
+    padding-bottom: 2px;
+}
+
+.dermapro{
+    background: url("../image/actions.png") no-repeat;
+    width: 261px;
+    margin-left: -44px;
+    padding: 26px 0px 16px 46px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #f3edf1;
+}
+
+.img{
+    width: 94px;
+    height: 128px;
+    border: 2px solid #ee2c57;
+    border-radius: 3px;
+    float: left;
+    margin-right: 13px;
+}
+
+.name-actions{
+    margin-top: 10px;
+}
+
+.text1{
+    color: #282828;
+}
+
+.sert{
+    background: url("../image/sert.png") no-repeat;
+    width: 299px;
+    height: 195px;
+    margin-top: 27px;
+    margin-left: -10px;
+}
+
+.sert:hover{
+    cursor: pointer;
+}
+
+.sertuficatu{
+    height: 160px;
+    background: #f1efda;
+    border-bottom: 1px dashed #6a624c;
+    border-top: 1px dashed #6a624c;
+}
+
+.sertuficatu > ul > li{
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 60px;
+}
+
+.sertuficatu > ul{
+    margin-left: 90px;
+}
+
+.poslygu > .left-poslygu, .right-poslygu{
+    display: inline-block;
+    width: 420px;
+}
+
+.right-poslygu{
+    float: right;
+}
+
+.poslyga{
+    margin-top: 30px;
+}
+
+.image-poslygu{
+    width: 84px;
+    height: 74px;
+    border: 1px solid #6a573a;
+    border-radius: 2px;
+    float: left;
+    margin-right: 16px;
+}
+
+.title-poslygu{
+    background: url("../image/title-poslygu.png") no-repeat;
+    width: 296px;
+    height: 28px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-left: 102px;
+    padding: 9px 0px 0 20px;
+}
+
+.text-poslygu{
+    color: #4f4f4f;
+}
+
+.poslygu{
+    padding-bottom: 63px;
+}
