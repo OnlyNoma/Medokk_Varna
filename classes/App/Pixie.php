@@ -12,7 +12,8 @@ class Pixie extends \PHPixie\Pixie {
 
 	protected $modules = array(
 		'db' => '\PHPixie\DB',
-		'orm' => '\PHPixie\ORM'
+		'orm' => '\PHPixie\ORM',
+        'auth' => '\PHPixie\Auth'
 	);
 
 	protected function after_bootstrap() {

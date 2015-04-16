@@ -5,10 +5,13 @@ namespace App\Controller;
 class Services extends \App\Page {
 
     public function action_index() {
-
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
-        $this->view->subview = 'services';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
+        $this->view->subview = '@services';
         $this->view->alertMessage = null;
 
         $this->view->vr_count = $this->pixie->orm->get('services')->count_all();
@@ -17,10 +20,14 @@ class Services extends \App\Page {
 
     public function action_add()
     {
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
 
-        $this->view->subview = 'services_add';
+        $this->view->subview = '@services_add';
         $this->view->alertMessage = null;
 
         if ($this->request->method == 'POST') {
@@ -38,12 +45,16 @@ class Services extends \App\Page {
 
     public function action_edit()
     {
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
 
         $id = $this->request->param('id');
 
-        $this->view->subview = 'services_edit';
+        $this->view->subview = '@services_edit';
         $this->view->alertMessage = null;
         $this->view->_id = $id;
         $this->view->services = $this->pixie->orm->get('services')->where('id','=',$id)->find();

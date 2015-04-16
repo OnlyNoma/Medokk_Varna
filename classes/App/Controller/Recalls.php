@@ -5,10 +5,13 @@ namespace App\Controller;
 class Recalls extends \App\Page {
 
     public function action_index() {
-
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
-        $this->view->subview = 'recalls';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
+        $this->view->subview = '@recalls';
         $this->view->alertMessage = null;
 
         $this->view->vr_count = $this->pixie->orm->get('recalls')->count_all();

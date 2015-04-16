@@ -43,9 +43,9 @@ function browser() {
     return [bName,version.split(".")[0]];
 }
 /*
-var
-    windowHeight = $(window).height(),
-    windowWidth = $(window).width();*/
+ var
+ windowHeight = $(window).height(),
+ windowWidth = $(window).width();*/
 
 function _get_scroll_modal1() {
     if (self.pageYOffset) {
@@ -94,19 +94,19 @@ function scrolling () {
     var menu = $('.menu:eq(0)'),
         pos = menu.offset();
 
-        $(window).scroll(function(){
-            if($(this).scrollTop() > pos.top+menu.height()){
-                //$(".back_to_top").stop(true, true);
-                $(".back_to_top").delay(100).fadeIn(350);
-            } else if($(this).scrollTop() <= pos.top){
-                //$(".back_to_top").stop(true, true);
-                $(".back_to_top").delay(100).fadeOut(350);
-            }
-        });
+    $(window).scroll(function(){
+        if($(this).scrollTop() > pos.top+menu.height()){
+            //$(".back_to_top").stop(true, true);
+            $(".back_to_top").delay(100).fadeIn(350);
+        } else if($(this).scrollTop() <= pos.top){
+            //$(".back_to_top").stop(true, true);
+            $(".back_to_top").delay(100).fadeOut(350);
+        }
+    });
 
-        $('.back_to_top:eq(0)').click(function(){
-            $('html, body').animate({scrollTop:0}, 500);
-        });
+    $('.back_to_top:eq(0)').click(function(){
+        $('html, body').animate({scrollTop:0}, 500);
+    });
 }
 
 function menuHover(){
@@ -123,7 +123,8 @@ function menuHover(){
 function addButtons(){
 
     $(".addInput").click( function (event) {
-        $('.m_cont').append("<input type='file' name='photo[]' class='multiple' onchange='viewAddImg(this,event);'> ");
+        if($('.multiple:eq('+$('.m_cont').find('.multiple').last().index()+')').css('display') != 'block')
+            $('.m_cont').append("<input type='file' name='photo[]' class='multiple' onchange='viewAddImg(this,event);'> ");
     });
 
     $(".removeInput").bind('click', function () {
@@ -135,13 +136,13 @@ function viewAddImg(obj, event,_class) {
     _class = _class || "view_img";
     if($(obj).hasClass('multiple') == false){//
         $(".review_comment").find("."+_class).html(
-                "<img src ='"+URL.createObjectURL(event.target.files[0])+"'>"
+            "<img src ='"+URL.createObjectURL(event.target.files[0])+"'>"
         );
     }else{
         $(".review_comment").find("."+_class+"_mult").append(
             "<div class='blob_container'>"+
-                "<span class='delete' onclick='deletePicture(this)'></span>"+
-                "<img src ='"+URL.createObjectURL(event.target.files[0])+"'>"+
+            "<span class='delete' onclick='deletePicture(this)'></span>"+
+            "<img src ='"+URL.createObjectURL(event.target.files[0])+"'>"+
             "</div>"
         );
         $(obj).hide();
@@ -153,10 +154,9 @@ function deletePicture(obj, id){
     var o = $(obj).parent();
     var a = confirm("Точно удалить?");
     if(a) {
-        $('.m_cont').find('input[type=file]:eq(' + ( $(o).index() -1 )+ ')').remove();
+        $('.m_cont').find('input[type=file]:eq(' + ( $(o).index() )+ ')').remove();
 
         if(id != 0){
-            alert(id);
             $.ajax({
                 type: "post",
                 url: "/query/deletePic.php",
@@ -215,18 +215,18 @@ function deleteMessage(){
     });
 }
 
-function settingsLimit(){
-    charsCount('title', 54);
-    charsCount('descr', 245);
-}
-
 function addHave(){
     var room = $("#roomh").val();
+    if(room.trim() == ''){
+        alert('Введите что-нибудь!');
+        return;
+    }
     $(".list").append(
         "<div class='list_item'><li>"+room+"</li><span><img src='/img/delete.gif'></span><input type='hidden' name = 'roomhave[]' class='room_item' value='"+room+"'></div>"
     );
-        editHave();
-        deleteHave();
+    $("#roomh").val('');
+    editHave();
+    deleteHave();
 }
 
 function deleteHave(){
@@ -249,17 +249,20 @@ function editHave(){
                     var id = $(this).attr('name');
                     $.ajax({
                         type: "post",
-                        url: "/query/editHave.php",
+                        url: "/web/query/editHave.php",
                         data: "id="+id+"&text="+$(this).text(),
                         dataType: "html",
                         success: function(result)
                         {
                             if(result == 'yes') {
-                                alert('Даааа');
+                                //alert('Даааа');
                                 //$(obj).parent().parent().remove();
                             }
                             //
 
+                        },
+                        always: function (result) {
+                            alert(result);
                         }
                     });
                 }
@@ -283,10 +286,87 @@ function priceValid(){
 
 }
 
+
+function ajaxDeleteHave(obj, id){
+    $.ajax({
+        type: "post",
+        url: "/web/query/deleteHave.php",
+        data: "id="+id,
+        dataType: "html",
+        success: function(result)
+        {
+            //alert(result);
+            if(result == 'yes') {
+                //alert('lol');
+                $(obj).parent().parent().remove();
+            }
+        }
+    }).always(function () {
+        $(obj).parent().parent().remove();
+    });
+}
+
+function parseVideo(){
+    $('#src').bind('keyup', function () {
+        $('#loader').fadeIn('fast');
+        $.ajax({
+            type: "post",
+            url: "/web/query/video.php",
+            data: "src="+$('#src').val(),
+            dataType: "html",
+            success: function(result)
+            {
+                $('#title').val(result.split('|')[0]);
+                $('.view_img').html(
+                    '<iframe width="460" height="315" src="https://www.youtube.com/embed/'+result.split('|')[1]+'" frameborder="0" allowfullscreen></iframe>'
+                );
+                $('#loader').fadeOut('fast');
+                $('#h_src').val(result.split('|')[1]);
+            }
+        });
+    })
+}
+
+
+
+
+function settingsLimit(){
+    $("#usp").bind('click',function(){
+        charsCount('usp', 256);
+    });
+    $("#address").bind('click',function(){
+        charsCount('address', 128);
+    });
+    $("#title").bind('click',function(){
+        charsCount('title', 64);
+    });
+    $("#title_big").bind('click',function(){
+        charsCount('title_big', 128);
+    });
+    $("#descr").bind('click',function(){
+        charsCount('descr', 256);
+    });
+    $("#adv").bind('click',function(){
+        charsCount('adv', 128);
+    });
+    $("#price").bind('click',function(){
+        charsCount('price', 10);
+    });
+    $("#recall_title").bind('click',function(){
+        charsCount('recall_title', 64);
+    });
+    $("#who").bind('click',function(){
+        charsCount('who', 128);
+    });
+}
+
+
+
+
 $(document).ready(function(){
     hasGetElementsByClassName();
 
-    new PhotoViewer('page');
+    new PhotoViewer('pvPhotos');
 
     var browserArr = browser();
     var ie = (browserArr[0] == "ie");
@@ -312,51 +392,42 @@ $(document).ready(function(){
     editHave();
 
     parseVideo();
-    //settingsLimit();
-});
 
+    settingsLimit();
 
-jQuery(function($) {
-    $("#phone").mask("+38(999) 999-9999", {placeholder: "+38(098) 765-4321"});
-    $("#alt_phone").mask("+38(999) 999-9999", {placeholder: "+38(098) 765-4321"});
-});
-
-
-function ajaxDeleteHave(obj, id){
-
-    $.ajax({
-        type: "post",
-        url: "/query/deleteHave.php",
-        data: "id="+id,
-        dataType: "html",
-        success: function(result)
-        {
-            if(result == 'yes') {
-                $(obj).parent().parent().remove();
-            }
-            //
-
-        }
+    jQuery(function($) {
+        $("#phone").mask("+38(999) 999-9999", {placeholder: "+38(098) 765-4321"});
+        $("#alt_phone").mask("+38(999) 999-9999", {placeholder: "+38(098) 765-4321"});
     });
-}
 
-function parseVideo(){
-    $('#src').bind('keyup', function () {
-        $('#loader').fadeIn('fast');
+    /**/
+    $('.addCat').bind('click', function () {
         $.ajax({
             type: "post",
-            url: "/query/video.php",
-            data: "src="+$('#src').val(),
+            url: "",
+            data: "cat="+$('#cat').val(),
             dataType: "html",
             success: function(result)
             {
-                $('#title').val(result.split('|')[0]);
-                $('.view_img').html(
-                    '<iframe width="460" height="315" src="https://www.youtube.com/embed/'+result.split('|')[1]+'" frameborder="0" allowfullscreen></iframe>'
-                );
-                $('#loader').fadeOut('fast');
-                $('#h_src').val(result.split('|')[1]);
+                alert(result);
+                if(result == 'yes'){
+                    location.reload();
+                }else{
+                    alert('Something bad was happen! Try to reload page :-)');
+                }
             }
         });
-    })
+    });
+    /**/
+});
+
+function validateRoomHave (e) {
+    if(e.keyCode == 13){
+        e.preventDefault();
+    }
+}
+
+function viewCat(obj){
+    $('.hiddenCat').toggle('show');
+
 }

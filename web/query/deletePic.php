@@ -7,14 +7,12 @@ if(isset($_POST['id'])){
     $pixie = new \App\Pixie;
     $pixie->bootstrap($root)->handle_http_request();
 
-    $a = $pixie->orm->get('roompic')->where('id','=',$_POST['id'])->find();
-    $ph = explode('.', $a->image);
-    if(file_exists('../img/uploads/room/' . ($ph[0] . '_mini.') . $ph[1])) {
-        unlink('../img/uploads/room/' . ($ph[0] . '_mini.') . $ph[1]);
-        unlink('../img/uploads/room/' . ($ph[0] . '_middle.') . $ph[1]);
-        unlink('../img/uploads/room/' . ($ph[0] . '_big.') . $ph[1]);
+    $a = $pixie->orm->get('photogalery')->where('id','=',$_POST['id'])->find();
+    $ph = explode('.', $a->path);
+    if(file_exists('../img/photos/' . $a->path)) {
+        unlink('../img/photos/' . $a->path);
+        $a->delete();
     }
-    $a->delete();
     echo 'yes';
 }
 ?>

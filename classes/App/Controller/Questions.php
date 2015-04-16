@@ -5,10 +5,13 @@ namespace App\Controller;
 class Questions extends \App\Page {
 
     public function action_index() {
-
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
-        $this->view->subview = 'questions';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
+        $this->view->subview = '@questions';
         $this->view->alertMessage = null;
 
         $this->view->vr_count = $this->pixie->orm->get('questions')->count_all();
@@ -17,12 +20,16 @@ class Questions extends \App\Page {
 
     public function action_answer()
     {
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
 
         $id = $this->request->param('id');
 
-        $this->view->subview = 'questions_answer';
+        $this->view->subview = '@questions_answer';
         $this->view->alertMessage = null;
         $this->view->_id = $id;
         $this->view->questions = $this->pixie->orm->get('questions')->where('id','=',$id)->find();

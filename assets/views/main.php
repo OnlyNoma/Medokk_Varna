@@ -1,78 +1,54 @@
-<?if(($subview == 'auth') || ($subview == 'landing')){
+<?if(($subview == 'auth')){
     include $subview.'.php';
     return;
 }?>
+<?if($subview[0] == '@'){
+    $subview = substr($subview,1,strlen($subview));
+    include "admin_header.php";
+    include $subview.'.php';
+    include "admin_footer.php";
+    return;
+}?>
+<?if($subview == 'empty') return;?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>salon</title>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Адміністративна панель салону Варна</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/photoViewer.css">
-
-        <script type="text/javascript" src="/js/jquery.min.js"></script>
-        <script src="/js/jquery.maskedinput.js" type="text/javascript"></script>
-        <script src="/js/text.js" type="text/javascript"></script>
-        <script type="text/javascript" src="/js/photoViewer.js"></script>
-        <script type="text/javascript" src="/js/script.js"></script>
-	</head>
-	<body>
-
-    <div class="header_all">
-        <div class="header">
-            <div class="site_name">
-                <h1><a href='/welcome'>Салон краси Варна</a></h1>
-            </div>
-            <div class="user">
-                <div class="username">
-                    Вітаю, <?=$username.' '.$userlastname?>
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+    <div id="content">
+        <div class="content">
+            <div class="left">
+                <div class="graphick">
+                    Понедельник - Суббота<br> 10:00 - 21:00<br>
+                    <span>обед 13:00 - 14:00</span><br>
+                    Воскресенье выходной
                 </div>
-                <div class="userSettings">
-                    <ul>
-                        <li><a href="/profile">Мої налаштування</a></li>
-                        <li><a href="/logout">Вийти</a></li>
-                        <li><a href="/" target="_blank">Перейти на сайт</a></li>
-                    </ul>
+
+                <div id="sidebar">
+                    <div class="sidebar">
+                        <ul>
+                            <li><a href="#">Сеть салонов</a></li>
+                            <li><a href="#">Бонусные карты</a></li>
+                            <li><a href="#">Услуги</a></li>
+                            <li><a href="#">Цены</a></li>
+                            <li><a href="#">Фотогалерея</a></li>
+                            <li><a href="#">Продукция</a></li>
+                            <li><a href="#">Акции</a></li>
+                            <li><a href="#">Компания</a></li>
+                            <li><a href="#">Новости</a></li>
+                            <li><a href="#">Вопросы и ответы</a></li>
+                            <li><a href="#">Отзывы</a></li>
+                        </ul>
+                    </div>
+                </div>
+		            <?php include($subview.'.php');?>
                 </div>
             </div>
-            <div style="clear: both"></div>
-        </div>
-    </div>
-
-    <div class="menu">
-        <ul>
-                <li>
-                    <a href="/questions">Питання і відповіді</a>
-                </li>
-                <li>
-                    <a href="/news">Новини</a>
-                </li>
-                <li>
-                    <a href="/services">Послуги</a>
-                </li>
-                <li>
-                    <a href="/recalls">Відгуки</a>
-                </li>
-                <li>
-                    <a href="/photogalery">Фотогалерея</a>
-                </li>
-            <div style="clear: both"></div>
-        </ul>
-    </div>
-
-    <div class="content">
-		<?php include($subview.'.php');?>
-    </div>
-
-    <div class="footer">
-        <p>Мини отель &copy; 2015</p>
-        <p>
-            <a href="/error">Повідомити про помилку</a>
-        </p>
-    </div>
-    <div class="back_to_top">
-        <img src="/img/upp.png">
-    </div>
-	</body>
+        </body>
 </html>

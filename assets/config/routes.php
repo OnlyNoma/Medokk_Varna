@@ -4,7 +4,7 @@ return array(
 	'default' => array(
 		'(/<controller>(/<action>(/<id>)))', 
 		array(
-			'controller' => 'index',
+			'controller' => 'administrator',
 			'action' => 'index'
 		),
 	),

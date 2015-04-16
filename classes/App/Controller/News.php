@@ -6,9 +6,13 @@ class News extends \App\Page {
 
     public function action_index() {
 
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
-        $this->view->subview = 'news';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
+        $this->view->subview = '@news';
         $this->view->alertMessage = null;
 
         $this->view->vr_count = $this->pixie->orm->get('news')->count_all();
@@ -17,10 +21,14 @@ class News extends \App\Page {
 
     public function action_add()
     {
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
 
-        $this->view->subview = 'news_add';
+        $this->view->subview = '@news_add';
         $this->view->alertMessage = null;
 
         if ($this->request->method == 'POST') {
@@ -37,12 +45,16 @@ class News extends \App\Page {
 
     public function action_edit()
     {
-        $this->view->username = 'kostia';
-        $this->view->userlastname = 'stefanovitch';
+        if ($this->pixie->auth->user() != null) {
+            $this->view->username = $this->pixie->auth->user()->name;
+            $this->view->userlastname = $this->pixie->auth->user()->lastname;
+        } else {
+            $this->redirect('/administrator');
+        }
 
         $id = $this->request->param('id');
 
-        $this->view->subview = 'news_edit';
+        $this->view->subview = '@news_edit';
         $this->view->alertMessage = null;
         $this->view->_id = $id;
         $this->view->news = $this->pixie->orm->get('news')->where('id','=',$id)->find();

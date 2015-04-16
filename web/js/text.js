@@ -1,5 +1,5 @@
 function charsCount(id, maxChars){
-    var count = $("#"+id).val().length;
+    var count = $("#"+id).val().length();
     $("#"+id+"_w").text(count);
     $("#"+id).bind("keyup",function (e) {
         count = $("#"+id).val().length;
