@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>salon</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div id="content">
+    <div class="content">
+        <div class="left">
+            <div class="graphick">
+                Понедельник - Суббота<br> 10:00 - 21:00<br>
+                <span>обед 13:00 - 14:00</span><br>
+                Воскресенье выходной
+            </div>
+
+            <div id="sidebar">
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="#">Услуги</a></li>
+                        <li><a href="#">Фотогалерея</a></li>
+                        <li><a href="#">Новости</a></li>
+                        <li><a href="#">Вопросы и ответы</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="news">
+                <div class="news">
+                    <ul>
+                        <li><span class="date">02.03.2011</span><br>
+                        <a href="#">Натуральная косметика Annemarie Borlind</a>
+                        </li>
+
+                        <li><span class="date">02.03.2011</span><br>
+                            <a href="#">Многофункциональный лечебный ультразвуковой аппарат "Beauty Sound Pro"</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div id="contacts">
+                <div class="contacts">
+                    <ul>
+                        <span>Контакты:</span>
+                        <li>+(380) 67 - 253 - 73 - 27 Наташа</li>
+                        <li>78-32-79 Рабочий</li>
+                        <li>E-mail: info@salon.ru</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="center">
+            <img src="image/ContactGirl.png">
+
+            <div id="masters">
+                <h2>Написати відгук</h2>
+				<div id = "addRewiew">
+					<form name="order" action="add_post.php" method="post" id="add_review">
+								<label for = "name" id = "labelReviews">Введіть ім'я:</label>
+								<input class = "input" type = "text" name = "name" id = "input">
+								<br/>
+								<label for = "email" id = "labelReviews">Введіть e-mail:</label>
+								<input type = "text" name = "email" id = "input">
+								
+								<textarea name="notice" cols="30" rows="3" id="textarea"></textarea>
+								<input type="hidden" name="id" value="12">
+								<input class = "btnAddStyle" type="submit" value="Додати запис">
+					</form>
+				</div>
+				<h2>Відгуки</h2>
+				<div id = "rewiewExample">
+					<div id = "rewiewExampleName">
+						Віталій Пятін
+					</div>
+						
+					<div id = "rewiewExampleEmail">
+						vetal@ukr.net
+					</div>
+					
+					<div id = "rewiewExampleText">
+						Текст текст текст текст
+					</div>
+				</div>
+            </div>
+        </div>
+        
+        <div class="right">
+            <img src="image/logo.png">
+
+            <div class="zapis">
+                ЗАПИСАТЬСЯ В САЛОН
+            </div>            
+        </div>
+		<div id = "footer">
+			<img src = "image/logo.png"/>
+			<div id= "footerLinks">
+				<a id="leftFooterLink" href = "#">Карта сайту</a>
+				<a id="rightFooterLink" href = "#">Написати лист</a>
+				<p>&copy;2015, Салон краси "Варна" Адрес: м. Хмельницький, вул. Подільська 97 </p>
+			</div>
+		</div>
+    </div>
+</div>
+</body>
+</html>
