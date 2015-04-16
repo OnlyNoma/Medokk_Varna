@@ -1,0 +1,84 @@
+.html_hideScroll{
+    overflow: hidden;
+}
+
+.box, .shadow{
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+.shadow, .shadow1{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 8000;
+    position: fixed;
+}
+
+.shadow1{
+    display: none;
+    top: 0;
+    left: 0;
+}
+
+.box{
+    z-index: 9000;
+    position: fixed;
+    top: 30px;
+}
+
+.leftSide{
+    float:left;
+    width:24px;
+    margin-right: 10px;
+}
+.centerSide{
+    float:left;
+}
+.rightSide{
+    float:left;
+    width:24px;
+    margin-left: 10px;
+}
+
+.prev, .next{
+    z-index: 4000;
+    background: url(../img/MediaItem.png);
+    width: 24px;
+    height: 32px;
+    margin: 0;
+    cursor: pointer;
+}
+.next{
+    background-position: -1px -257px;
+}
+.prev{
+    background-position: -71px -257px;
+
+}
+.close{
+    position: fixed;
+    right: 8px;
+    top: 0;
+    display: block;
+    font: 30px/30px "Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #fff;
+    cursor: pointer;
+}
+.content{
+    /*width: 1000px;*/
+    margin: 0 auto;
+}
+
+.layer1{
+    background: #fff;
+    margin: 0 auto;
+}
+
+.layer1 img{
+    cursor: pointer;
+    margin-bottom: -4px;
+}

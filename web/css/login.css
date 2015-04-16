@@ -1,0 +1,172 @@
+img{
+    border: 0;
+    margin: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: url(../img/bg-admin.jpg);
+    /*background: #a7cfdf;
+    background: -moz-radial-gradient(center, ellipse cover,  #a7cfdf 0%, #23538a 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#a7cfdf), color-stop(100%,#23538a));
+    background: -webkit-radial-gradient(center, ellipse cover,  #a7cfdf 0%,#23538a 100%);
+    background: -o-radial-gradient(center, ellipse cover,  #a7cfdf 0%,#23538a 100%);
+    background: -ms-radial-gradient(center, ellipse cover,  #a7cfdf 0%,#23538a 100%);
+    background: radial-gradient(ellipse at center,  #a7cfdf 0%,#23538a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=1 );*/
+}
+
+.content_login{
+    margin-top: 15%;
+    margin-left: 35%;
+    width: 400px;
+    background: #f7f7f7;
+    border-radius: 2px;
+    border: 1px solid #d8d8d8;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow:    0px 0px 20px 5px rgba(0,0,0,0.15);
+    box-shadow:         0px 0px 20px 5px rgba(0,0,0,0.15);
+}
+
+.login_header{
+    padding: 10px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.login_header h1{
+    padding: 0;
+    margin: 0;
+    font-family: Calibri, Helvetica, sans-serif;
+    font-size: 25px;
+    color: #333;
+}
+
+.content_login form{
+    padding: 10px;
+}
+
+.content_login form input{
+    width: 300px;
+    padding: 10px 20px;
+    outline: none;
+    background: #fafafa;
+    border: 1px solid #ccc;
+    height: 40%;
+}
+
+.content_login form input[type=checkbox]{
+    width: 18px ;
+    padding: 0;
+    outline: none;
+    height: 18px;
+    border-radius: 0;
+
+}
+
+.content_login form label{
+    font-family: Calibri;
+    font-size: 14px;
+    vertical-align: 4px;
+}
+
+.content_login a{
+    color: #3A6EA7;
+    text-decoration: none;
+    font-family: Calibri;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: 4px;
+    margin-left: 150px;
+}
+
+.content_login a:hover{
+    text-decoration: underline;
+}
+
+
+.user{
+    margin-right: -1px;
+    float: left;
+    position: relative;
+    text-shadow: 0 1px 0 #fff;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    height: 94%;
+}
+
+.user img{
+    width: 16px;
+    height: 16px;
+    margin: 8px 8px 0px 8px;
+}
+
+.container{
+    margin: 8px 0;
+    height: 37px;
+}
+
+.check1{
+    display: block;
+    margin: 8px 0;
+}
+
+.submit{
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px 10px;
+    width: 100px;
+    font-family: arial,sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: rgb(68,68,68);
+    float: right;
+    margin-right: 5px;
+    outline: none;
+    border: 1px solid rgba(0,0,0,.1);
+    background: #f4f4f4;
+    background: -moz-linear-gradient(left,  #f4f4f4 0%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f4f4f4), color-stop(100%,#f1f1f1));
+    background: -webkit-linear-gradient(left,  #f4f4f4 0%,#f1f1f1 100%);
+    background: -o-linear-gradient(left,  #f4f4f4 0%,#f1f1f1 100%);
+    background: -ms-linear-gradient(left,  #f4f4f4 0%,#f1f1f1 100%);
+    background: linear-gradient(to right,  #f4f4f4 0%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#f1f1f1',GradientType=1 );
+    transition: all .218s ease 0s;
+    text-align: center;
+}
+
+.submit:hover{
+    color: rgb(24,24,24);
+    border: 1px solid rgb(198,198,198);
+    background: #f7f7f7;
+    background: -moz-linear-gradient(left,  #f7f7f7 0%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f7f7f7), color-stop(100%,#f1f1f1));
+    background: -webkit-linear-gradient(left,  #f7f7f7 0%,#f1f1f1 100%);
+    background: -o-linear-gradient(left,  #f7f7f7 0%,#f1f1f1 100%);
+    background: -ms-linear-gradient(left,  #f7f7f7 0%,#f1f1f1 100%);
+    background: linear-gradient(to right,  #f7f7f7 0%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f1f1f1',GradientType=1 );
+
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.error{
+    background: #EDB0A8;
+    padding: 10px 20px;
+    width: 350px;
+    color: #000;
+    font-size: 14px;
+    display: none;
+    border: 1px solid #f6290c;
+    border-radius: 2px;
+    margin: 10px 0;
+    margin-left: 4px;
+}
+
+.send{
+    display: none;
+    font-size: 14px;
+    color: #008a00;
+    font-family: Calibri;
+}
