@@ -76,6 +76,7 @@
 .text{
     margin-top: 5px;
     color: #4f4f4f;
+    overflow: hidden;
 }
 
 .graphick{
@@ -327,6 +328,7 @@
 
 .text-poslygu{
     color: #4f4f4f;
+    overflow: hidden;
 }
 
 .poslygu{
@@ -387,6 +389,7 @@
 
     .otvet{
         color: #303030;
+        overflow: hidden;
     }
 /*End Questions*/
 
@@ -447,4 +450,8 @@
     border-top: 1px dashed #6a573a;
     margin-top: 15px;
 
+}
+
+.text-actions{
+    overflow: hidden;
 }
