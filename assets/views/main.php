@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>PHPixie</title>
+		<title>Адміністративна панель салону Варна</title>
 
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/photoViewer.css">
