@@ -332,3 +332,119 @@
 .poslygu{
     padding-bottom: 63px;
 }
+
+
+/*Questions*/
+    #questions{
+        margin-top: 16px;
+        width: 610px;
+        background: rgba(235,245,252, 0.4);
+        border-radius: 30px;
+        padding-top: 15px;
+        padding-left: 45px;
+        padding-right: 33px;
+        padding-bottom: 15px;
+    }
+
+    #questions > .title{
+        font-size: 34px;
+        color: #13408b;
+        padding-bottom: 15px;
+    }
+
+    .add_put{
+        background:  url("../image/add_put.png") no-repeat;
+        width: 255px;
+        height: 39px;
+        float: right;
+        font-weight: bold;
+        font-size: 25px;
+        color: #fff;
+        padding: 5px 0px 0px 11px;
+    }
+
+    .putania{
+        width: 610px;
+        margin-top: 15px;
+        border-top: 1px dashed #6a573a;
+        margin-bottom: 20px;
+    }
+
+    .put{
+        margin: 15px 0;
+        font-weight: bold;
+        font-size: 18px;
+        color: #13408b;
+    }
+
+    .image-put{
+        background: url("../image/i.png") no-repeat;
+        width: 36px;
+        height: 71px;
+        float: left;
+        margin-right: 15px;
+    }
+
+    .otvet{
+        color: #303030;
+    }
+/*End Questions*/
+
+/*news begin*/
+
+.date-news{
+    margin-top: 15px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #13408b;
+}
+
+.title-news{
+    font-size: 18px;
+    font-weight: bold;
+    color: #13408b;
+    margin-bottom: 10px;
+    line-height: 1.2em;
+    width: 450px;
+}
+
+.image-news{
+    width: 146px;
+    height: 123px;
+    border: 1px solid #4d5b86;
+    border-radius: 3px;
+    float: left;
+    margin-right: 20px;
+}
+
+/*news end*/
+
+#questions > ul > li{
+    display: inline-block;
+}
+
+.image-services{
+    width: 147px;
+    height: 124px;
+    border: 1px solid #54618a;
+    border-radius: 3px;
+    float: left;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.title-services{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+    color: #13408b;
+    margin-top: 15px;
+}
+
+.services{
+    border-top: 1px dashed #6a573a;
+    margin-top: 15px;
+
+}
