@@ -2,17 +2,17 @@
 
 namespace App\Controller;
 
-class News extends \App\Page {
+class Services extends \App\Page {
 
     public function action_index() {
 
         $this->view->username = 'kostia';
         $this->view->userlastname = 'stefanovitch';
-        $this->view->subview = 'news';
+        $this->view->subview = 'services';
         $this->view->alertMessage = null;
 
-        $this->view->vr_count = $this->pixie->orm->get('news')->count_all();
-        $this->view->news = $this->pixie->orm->get('news')->find_all();
+        $this->view->vr_count = $this->pixie->orm->get('services')->count_all();
+        $this->view->services = $this->pixie->orm->get('services')->find_all();
     }
 
     public function action_add()
@@ -20,13 +20,14 @@ class News extends \App\Page {
         $this->view->username = 'kostia';
         $this->view->userlastname = 'stefanovitch';
 
-        $this->view->subview = 'news_add';
+        $this->view->subview = 'services_add';
         $this->view->alertMessage = null;
 
         if ($this->request->method == 'POST') {
-            $v = $this->pixie->orm->get('news');
+            $v = $this->pixie->orm->get('services');
             $v->title = $this->request->post('title');
-            $v->text = $this->request->post('text');
+            $v->description = $this->request->post('description');
+            $v->price = $this->request->post('price');
             $v->save();
 
             $this->view->alertMessage = null;
@@ -42,48 +43,43 @@ class News extends \App\Page {
 
         $id = $this->request->param('id');
 
-        $this->view->subview = 'news_edit';
+        $this->view->subview = 'services_edit';
         $this->view->alertMessage = null;
         $this->view->_id = $id;
-        $this->view->news = $this->pixie->orm->get('news')->where('id','=',$id)->find();
+        $this->view->services = $this->pixie->orm->get('services')->where('id','=',$id)->find();
 
         if($this->request->method == "POST") {
-            $news = $this->pixie->orm->get('news')->where('id', '=', $id)->find();
-            if ($news->loaded()) {
-                $news->title = $this->request->post('title');
-                $news->text = $this->request->post('text');
+            $services = $this->pixie->orm->get('services')->where('id', '=', $id)->find();
+            if ($services->loaded()) {
+                $services->title = $this->request->post('title');
+                $services->description = $this->request->post('description');
+                $services->price = $this->request->post('price');
 
-                $news->save();
+                $services->save();
                 $this->view->alertMessage = null;
 
-                $this->redirect('/news');
+                $this->redirect('/services');
             }
         }
     }
 
     public function action_delete()
     {
-        if ($this->pixie->auth->user() != null) {
-            $this->view->username = $this->pixie->auth->user()->name;
-            $this->view->userlastname = $this->pixie->auth->user()->lastname;
-        } else {
-            $this->redirect('/');
-        }
 
         $id = $this->request->param('id');
         if ($id) {
-            $d = $this->pixie->orm->get('news')->where('id','=',$id)->find();
+            $d = $this->pixie->orm->get('services')->where('id','=',$id)->find();
             $d->delete();
         }else{
             $_dell = $this->request->post('dell');
 
             foreach($_dell as $dell){
-                $d = $this->pixie->orm->get('news')->where('id','=',$dell)->find();
+                $d = $this->pixie->orm->get('services')->where('id','=',$dell)->find();
                 $d->delete();
             }
         }
 
-        $this->redirect('/news');
+        $this->redirect('/services');
     }
 
 }

@@ -1,4 +1,4 @@
-<h1>Редактирование зоны: <i><?=$news->title?></i></h1>
+<h1>Редагування новини: <i><?=$news->title?></i></h1>
 <?if($alertMessage != null):?>
     <div class="errorMessage">
         <?=$alertMessage?>
